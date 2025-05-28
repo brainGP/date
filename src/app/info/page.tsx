@@ -11,7 +11,7 @@ function GetCountdown() {
 
   useEffect(() => {
     const targetTime = new Date();
-    targetTime.setHours(9, 10, 0, 0); // 9:10 AM today
+    targetTime.setHours(18, 10, 0, 0); // 9:10 AM today
 
     const updateTimer = () => {
       const now = new Date();
@@ -105,7 +105,7 @@ export default function Info() {
 
   return (
     <div className="bg-[#f6f1eb] min-h-screen flex items-center justify-center px-4 py-10">
-      <div className="bg-white rounded-3xl shadow-xl p-8 w-full max-w-xl">
+      <div className="bg-white rounded-2xl shadow-xl p-8 w-full max-w-xl">
         {/* Back Button on top */}
         <div className="mb-6 text-left">
           <Link href="/">
@@ -170,7 +170,7 @@ export default function Info() {
             </button>
           ) : currentHour < 18 ? (
             <p className="text-sm text-gray-400">
-              9:10 цаг хүртэл хүлээнэ үү <GetCountdown />
+              18:00 цаг хүртэл хүлээнэ үү <GetCountdown />
             </p>
           ) : (
             <Link href="/date" className={buttonClasses}>
