@@ -63,7 +63,7 @@ export default function Home() {
         <p className="text-base text-gray-600 mb-2">
           Таныг болзоонд урьж байна
         </p>
-        <p className="text-lg text-gray-800">2025 оны 8-р сарын 29</p>
+        <p className="text-lg text-gray-800">2025 оны 6-р сарын 29</p>
 
         <div className="mt-6">
           {!accepted ? (
