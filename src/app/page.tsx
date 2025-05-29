@@ -97,7 +97,7 @@ export default function Home() {
           Бат-Оргил ❤️ Энхжин
         </p>
         <p className="text-gray-600 mb-4">Таныг болзоонд урьж байна</p>
-        <p className="text-xl text-gray-700 mb-2">2025 оны 8-р сарын 29</p>
+        <p className="text-xl text-gray-700 mb-2">2025 оны 6-р сарын 29</p>
 
         <div className="mt-6">
           {!accepted ? (
