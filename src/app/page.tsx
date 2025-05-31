@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { Pacifico } from "next/font/google";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 
 const pacifico = Pacifico({
@@ -11,7 +12,7 @@ const pacifico = Pacifico({
 export default function Home() {
   const [accepted, setAccepted] = useState(false);
   const [timeNow, setTimeNow] = useState(new Date());
-  const [showLink, setShowLink] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
     if (accepted) {
@@ -21,15 +22,13 @@ export default function Home() {
         const h = now.getHours();
         const m = now.getMinutes();
 
-        if (h === 9 && m >= 10 && m < 20) {
-          setShowLink(true);
-        } else {
-          setShowLink(false);
+        if (h > 9 || (h === 9 && m >= 10)) {
+          router.push("/info");
         }
       }, 1000);
       return () => clearInterval(timer);
     }
-  }, [accepted]);
+  }, [accepted, router]);
 
   const getCountdown = () => {
     const now = timeNow;
@@ -73,13 +72,6 @@ export default function Home() {
             >
               Хүлээн авах
             </button>
-          ) : showLink ? (
-            <a
-              href="/info"
-              className="inline-block bg-pink-600 text-white px-6 py-2 rounded-lg hover:bg-pink-700 transition"
-            >
-              Мэдээлэл рүү очих
-            </a>
           ) : (
             <p className="text-sm text-gray-500">
               9:10 цаг хүртэл хүлээнэ үү ({getCountdown()})
@@ -107,13 +99,6 @@ export default function Home() {
             >
               Хүлээн авах
             </button>
-          ) : showLink ? (
-            <a
-              href="/info"
-              className="inline-block bg-pink-600 text-white px-6 py-2 rounded-lg hover:bg-pink-700 transition"
-            >
-              Мэдээлэл рүү очих
-            </a>
           ) : (
             <p className="text-sm text-gray-400">
               9:10 цаг хүртэл хүлээнэ үү ({getCountdown()})
